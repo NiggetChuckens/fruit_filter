@@ -2,3 +2,7 @@
 env/
 
 *.zip
+
+fruits-360_dataset/
+
+full_yolo_backend.h5

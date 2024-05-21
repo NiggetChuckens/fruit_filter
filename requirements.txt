@@ -3,3 +3,6 @@ opencv-python-headless
 scikit-learn 
 numpy 
 matplotlib
+yolov7
+pillow
+lxml
