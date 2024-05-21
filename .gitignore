@@ -6,3 +6,9 @@ env/
 fruits-360_dataset/
 
 full_yolo_backend.h5
+
+*.pt
+
+xml_generator.py
+
+fruits-360/

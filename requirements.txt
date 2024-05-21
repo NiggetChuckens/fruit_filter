@@ -6,3 +6,4 @@ matplotlib
 yolov7
 pillow
 lxml
+scikit-learn
