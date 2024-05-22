@@ -19,15 +19,15 @@ def load_images(imgpath):
     images = []
     directories = []
     dircount = []
-    prevRoot=''
-    cant=0
+    prevRoot = ''
+    cant = 0
     
     folders = iterate_folders(imgpath)
     for folder in folders:
         print(folder)
         for root, dirs, files in os.walk(folder):
             for file in files:
-                if re.search("\.(jpg|jpeg|png|bmp|tiff)$",file):
+                if re.search("\.(jpg|jpeg|png|bmp|tiff)$", file):
                     cant += 1
                     filepath = os.path.join(root, file)
                     image = plt.imread(filepath)
@@ -51,24 +51,24 @@ def load_images(imgpath):
     return set_index(images, directories, dircount)
                 
 def set_index(images, directories, dircount):
-    labels=[]
-    indice=0
+    labels = []
+    indice = 0
     for cantidad in dircount:
         for i in range(cantidad):
             labels.append(indice)
-        indice=indice+1
-    print("Cantidad etiquetas creadas: ",len(labels))
+        indice = indice + 1
+    print("Cantidad etiquetas creadas: ", len(labels))
     
-    fruits=[]
-    indice=0
+    fruits = []
+    indice = 0
     for directorio in directories:
         name = directorio.split(os.sep)
-        print(indice , name[len(name)-1])
-        fruits.append(name[len(name)-1])
-        indice=indice+1
+        print(indice, name[len(name) - 1])
+        fruits.append(name[len(name) - 1])
+        indice = indice + 1
     
     y = np.array(labels)
-    X = np.array(images, dtype=np.uint8) #convierto de lista a numpy
+    X = np.array(images, dtype=np.uint8)  # Convert from list to numpy
     
     # Find the unique numbers from the train labels
     classes = np.unique(y)
@@ -77,8 +77,8 @@ def set_index(images, directories, dircount):
     print('Output classes : ', classes)
     
 
-#Mezclar todo y crear los grupos de entrenamiento y testing
-    train_X,test_X,train_Y,test_Y = train_test_split(X,y,test_size=0.2)
+    # Shuffle and create training and testing groups
+    train_X, test_X, train_Y, test_Y = train_test_split(X, y, test_size=0.2)
     print('Training data shape : ', train_X.shape, train_Y.shape)
     print('Testing data shape : ', test_X.shape, test_Y.shape)
     
@@ -95,15 +95,22 @@ def set_index(images, directories, dircount):
     print('Original label:', train_Y[0])
     print('After conversion to one-hot:', train_Y_one_hot[0])
     
-    train_X,valid_X,train_label,valid_label = train_test_split(train_X, train_Y_one_hot, test_size=0.2, random_state=13)
+    train_X, valid_X, train_label, valid_label = train_test_split(train_X, train_Y_one_hot, test_size=0.2, random_state=13)
     
-    print(train_X.shape,valid_X.shape,train_label.shape,valid_label.shape)
+    print(train_X.shape, valid_X.shape, train_label.shape, valid_label.shape)
     
-    return train_X,valid_X,train_label,valid_label,nClasses
+    return train_X, train_label, valid_X, valid_label, nClasses
                     
 if __name__ == '__main__':
     dirname = os.path.join(os.getcwd(), 'fruits-360')
     dirname = os.path.join(dirname, 'Training')
     imgpath = dirname + os.sep
-    a=load_images(imgpath)
+    a = load_images(imgpath)
+    print(a)
+
+if __name__ == '__main__':
+    dirname = os.path.join(os.getcwd(), 'fruits-360')
+    dirname = os.path.join(dirname, 'Training')
+    imgpath = dirname + os.sep
+    a = load_images(imgpath)
     print(a)
