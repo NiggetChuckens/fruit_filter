@@ -1,9 +1,1 @@
-tensorflow 
-opencv-python-headless 
-scikit-learn 
-numpy 
-matplotlib
-yolov7
-pillow
-lxml
-scikit-learn
+tqdm pandas tensorflow opencv-python-headless scikit-learn numpy matplotlib yolov7 pillow yolov7detect lxml scikit-learn torch torchvision torchaudio -f https://download.pytorch.org/whl/cu111/torch_stable.html
