@@ -8,7 +8,7 @@ def load_model():
         tf.keras.Model: The loaded Keras model.
     """
 
-    return tf.keras.models.load_model("fruits.h5")
+    return tf.keras.models.load_model("fruits_new.h5")
 
 def prediction(model, image_set):
     """

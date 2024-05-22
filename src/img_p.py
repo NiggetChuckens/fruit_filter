@@ -107,10 +107,3 @@ if __name__ == '__main__':
     imgpath = dirname + os.sep
     a = load_images(imgpath)
     print(a)
-
-if __name__ == '__main__':
-    dirname = os.path.join(os.getcwd(), 'fruits-360')
-    dirname = os.path.join(dirname, 'Training')
-    imgpath = dirname + os.sep
-    a = load_images(imgpath)
-    print(a)
